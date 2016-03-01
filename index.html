@@ -27,23 +27,14 @@
     </head>
     <body>
         <div class="container">
-            <p class="lead">
-                Using photos of a politician taken from a press conference, a
-                hacker recreates her thumbprint to bypass fingerprint readers.
-            </p>
+            <p class="lead" id="premise"></p>
             <button type="button" class="btn btn-lg btn-block btn-danger">
                 Plot!
             </button>
             <button type="button" class="btn btn-lg btn-block btn-success">
                 Not!
             </button>
-            <p class="lead">
-                <strong>Not plot.</strong>  In December 2014, German hacker
-                Starbug <a
-               href="http://arstechnica.com/security/2014/12/politicians-fingerprint-reproduced-using-photos-of-her-hands/">gave
-               a presentation</a> in which he detailed reproducing the
-               fingerprints of German Defense Minister Ursula von der Leyen.
-            </p>
+            <p class="lead" id="summary"></p>
         </div> <!-- /container -->
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
@@ -52,6 +43,27 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
                 integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
                 crossorigin="anonymous">
+        </script>
+
+        <script>
+            var plots = [
+                {
+                    'premise': "Using photos of a politican taken from a " +
+                               "press conference, a hacker recreates her " +
+                               "thumbprint to bypass fingerprint readers.",
+                    'plot': false,
+                    'summary': "In December 2014, German hacker Starbug " +
+                               '<a href="http://arstechnica.com/security/2014/12/politicians-fingerprint-reproduced-using-photos-of-her-hands/">' +
+                               "gave a presentation</a> in which he " +
+                               "detailed reproducing the fingerprints of " +
+                               "German Defense Minister Ursula von der Leyen."
+                }
+            ];
+
+            $('#premise').html(plots[0].premise);
+            var orNot = plots[0].plot ? 'Plot.' : 'Not plot.';
+            $('#summary')
+                .html('<strong>' + orNot + '</strong> ' + plots[0].summary);
         </script>
     </body>
 </html>
